@@ -50,7 +50,6 @@ import io.minio.messages.Item;
  * ErqiClient
  *
  * @author chuhl
- * @date 2019/4/24
  */
 public class ErqiClient {
     private ErqiClientConfig erqiClientConfig;

@@ -3,7 +3,6 @@ package cn.skylarkai.erqicos.common;
  * StatFileRequest
  *
  * @author chuhl
- * @date 2019/4/24
  */
 public class ErqiStatFileRequest {
     private String bucketName;

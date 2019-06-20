@@ -3,7 +3,6 @@ package cn.skylarkai.erqicos.common;
  * MoveFileRequest
  *
  * @author chuhl
- * @date 2019/4/24
  */
 public class ErqiMoveFileRequest {
     private String bucketName;

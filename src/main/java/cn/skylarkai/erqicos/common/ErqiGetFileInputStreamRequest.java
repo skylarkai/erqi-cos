@@ -3,7 +3,6 @@ package cn.skylarkai.erqicos.common;
  * GetFileInputStreamRequest
  *
  * @author chuhl
- * @date 2019/4/24
  */
 public class ErqiGetFileInputStreamRequest {
     private String bucketName;

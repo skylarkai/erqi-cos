@@ -6,7 +6,6 @@ import java.util.Arrays;
  * UploadFileRequest
  *
  * @author chuhl
- * @date 2019/4/24
  */
 public class ErqiUploadFileRequest {
 

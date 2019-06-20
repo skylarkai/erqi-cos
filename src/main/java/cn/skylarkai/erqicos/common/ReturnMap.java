@@ -3,7 +3,6 @@ package cn.skylarkai.erqicos.common;
  * ReturnMap
  *
  * @author chuhl
- * @date 2017/12/20
  */
 public class ReturnMap {
     /**

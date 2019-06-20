@@ -12,7 +12,7 @@ import cn.skylarkai.erqicos.common.ErqiUploadFileRequest;
 public class ErqiClientTest {
 
     public static void main(String[] args){
-        ErqiClientConfig erqiClientConfig = new ErqiClientConfig( ErqiClientConfig.COS_TYPE.OTHER);
+        ErqiClientConfig erqiClientConfig = new ErqiClientConfig( "OTHER");
         //tencentV4
 //        erqiClientConfig.setAppid( 1255605477 );
 //        erqiClientConfig.setSecretKey( "60hEXdWBdsujLkwve7KIzQbWBajbEbiZ" );
@@ -20,9 +20,9 @@ public class ErqiClientTest {
 //        erqiClientConfig.setRegion( "bj" );
 //        String bucketName = "dev-cos";
         //minio
-        erqiClientConfig.setAccessKey( "XUP7XS0B7N3NA17ST3XY" );
-        erqiClientConfig.setEndpoint( "http://192.168.238.128:9009" );
-        erqiClientConfig.setSecretKey( "NGO6U0dndvVyYFHdPu0vMoUlYlFGgDKFq62fAx7Q" );
+        erqiClientConfig.setAccessKey( "4OD84A4DJX995LPBJY9C" );
+        erqiClientConfig.setEndpoint( "http://localhost:9000" );
+        erqiClientConfig.setSecretKey( "AdwDDU5LMA7zHHrY5C+5ACCpabk7bdTxKkXrCpCs" );
 //        erqiClientConfig.setRegion( "bj" );
         String bucketName = "test4";
         //aliyun

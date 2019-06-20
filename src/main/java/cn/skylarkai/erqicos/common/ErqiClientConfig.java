@@ -3,7 +3,6 @@ package cn.skylarkai.erqicos.common;
  * ErqiClientConfig
  *
  * @author chuhl
- * @date 2019/4/24
  */
 public class ErqiClientConfig {
     private long appid;
@@ -13,18 +12,18 @@ public class ErqiClientConfig {
     private String endpoint;
     private int cosType;
 
-    public ErqiClientConfig (COS_TYPE cos_type) {
+    public ErqiClientConfig (String cos_type) {
         switch (cos_type){
-            case TENCENT:
+            case "TENCENT":
                 this.cosType = 1;
                 break;
-            case TENCENT_V4:
+            case "TENCENT_V4":
                 this.cosType = 3;
                 break;
-            case ALIYUN:
+            case "ALIYUN":
                 this.cosType = 2;
                 break;
-            case OTHER:
+            case "OTHER":
                 this.cosType = 0;
                 break;
             default:
