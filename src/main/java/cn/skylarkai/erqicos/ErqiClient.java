@@ -428,6 +428,7 @@ public class ErqiClient {
             case 3:
                 com.qcloud.cos.request.GetFileInputStreamRequest cosGetFileInputStreamRequest = new com.qcloud.cos.request.GetFileInputStreamRequest( erqiGetFileInputStreamRequest.getBucketName(), erqiGetFileInputStreamRequest.getCosPath() );
                 try {
+                    cosGetFileInputStreamRequest.setUseCDN( false );
                     return cosClient.getFileInputStream( cosGetFileInputStreamRequest );
                 } catch (Exception e) {
                     e.printStackTrace();

@@ -1,7 +1,10 @@
 import cn.skylarkai.erqicos.ErqiClient;
 import cn.skylarkai.erqicos.common.ErqiClientConfig;
 import cn.skylarkai.erqicos.common.ErqiDelFileRequest;
+import cn.skylarkai.erqicos.common.ErqiGetFileInputStreamRequest;
 import cn.skylarkai.erqicos.common.ErqiUploadFileRequest;
+
+import java.io.InputStream;
 
 /**
  * ErqiClientTest
@@ -12,19 +15,19 @@ import cn.skylarkai.erqicos.common.ErqiUploadFileRequest;
 public class ErqiClientTest {
 
     public static void main(String[] args){
-        ErqiClientConfig erqiClientConfig = new ErqiClientConfig( "OTHER");
+        ErqiClientConfig erqiClientConfig = new ErqiClientConfig( "TENCENT_V4");
         //tencentV4
-//        erqiClientConfig.setAppid( 1255605477 );
-//        erqiClientConfig.setSecretKey( "60hEXdWBdsujLkwve7KIzQbWBajbEbiZ" );
-//        erqiClientConfig.setAccessKey( "AKIDsZ1D8nCMGuOgjGIyABzb1FI8k9MMrj6G" );
-//        erqiClientConfig.setRegion( "bj" );
-//        String bucketName = "dev-cos";
+        erqiClientConfig.setAppid( 1255605477 );
+        erqiClientConfig.setSecretKey( "60hEXdWBdsujLkwve7KIzQbWBajbEbiZ" );
+        erqiClientConfig.setAccessKey( "AKIDsZ1D8nCMGuOgjGIyABzb1FI8k9MMrj6G" );
+        erqiClientConfig.setRegion( "bj" );
+        String bucketName = "dev-cos";
         //minio
-        erqiClientConfig.setAccessKey( "4OD84A4DJX995LPBJY9C" );
-        erqiClientConfig.setEndpoint( "http://localhost:9000" );
-        erqiClientConfig.setSecretKey( "AdwDDU5LMA7zHHrY5C+5ACCpabk7bdTxKkXrCpCs" );
+//        erqiClientConfig.setAccessKey( "4OD84A4DJX995LPBJY9C" );
+//        erqiClientConfig.setEndpoint( "http://localhost:9000" );
+//        erqiClientConfig.setSecretKey( "AdwDDU5LMA7zHHrY5C+5ACCpabk7bdTxKkXrCpCs" );
 //        erqiClientConfig.setRegion( "bj" );
-        String bucketName = "test4";
+//        String bucketName = "test4";
         //aliyun
 //        erqiClientConfig.setSecretKey( "qVGAgYsgYOQRxYnpye1pxMzJnQL0xz" );
 //        erqiClientConfig.setAccessKey( "LTAIS76wo0iWNjkw" );
@@ -35,10 +38,14 @@ public class ErqiClientTest {
             System.out.print( erqiClient.makeBucket( bucketName ) );
         }
 
-        ErqiUploadFileRequest uploadFileRequest = new ErqiUploadFileRequest( bucketName,"test1.html","D:\\wcmtxt\\test.html" );
+        ErqiUploadFileRequest uploadFileRequest = new ErqiUploadFileRequest( bucketName,"/test1.html","D:\\wcmtxt\\test.html" );
 
         String ret = erqiClient.uploadFile( uploadFileRequest );
         System.out.print( ret );
+
+        ErqiGetFileInputStreamRequest inputStreamRequest = new ErqiGetFileInputStreamRequest( bucketName,"/test1.html" );
+        InputStream ret1 = erqiClient.getFileInputStream( inputStreamRequest );
+
 ////        cn.skylarkai.openapi.common.util.ListFolderRequest listFolderRequest = new cn.skylarkai.openapi.common.util.ListFolderRequest( bucketName,"data/" );
 ////        String ret = erqiClient.listFolder( listFolderRequest );
         ErqiDelFileRequest erqiDelFileRequest = new ErqiDelFileRequest( bucketName,"test1.html" );
