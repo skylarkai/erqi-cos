@@ -458,6 +458,7 @@ public class ErqiClient {
                     JSONArray jsonArray = new JSONArray(  );
                     for(OSSObjectSummary ossObjectSummary:ossObjectSummaries){
                         Map<String,Object> tmpMap = new HashMap<>(  );
+                        tmpMap.put( "source_url", ossClient.getEndpoint()+"/"+ossObjectSummary.getKey());
                         tmpMap.put( "name",ossObjectSummary.getKey().substring( ossObjectSummary.getKey().lastIndexOf( "/" ) + 1 ) );
                         tmpMap.put( "filesize",ossObjectSummary.getSize() );
                         tmpMap.put( "mtime" ,ossObjectSummary.getLastModified());
@@ -487,12 +488,16 @@ public class ErqiClient {
             default:
                 try {
                     Iterable<Result<Item>> resultIterable=  minioClient.listObjects( erqiListFolderRequest.getBucketName(),erqiListFolderRequest.getCosPath() );
+
                     if(resultIterable.iterator().hasNext()){
                         returnMap.setFlg( 0 );
                         returnMap.setMessage( "SUCCESS");
                         JSONArray jsonArray = new JSONArray(  );
+
                         for(Result<Item> result:resultIterable){
+                           String url =  minioClient.getObjectUrl(erqiListFolderRequest.getBucketName(),result.get().objectName() );
                             Map<String,Object> tmpMap = new HashMap<>(  );
+                            tmpMap.put( "source_url",url );
                             tmpMap.put( "name",result.get().objectName().substring( result.get().objectName().lastIndexOf( "/" ) + 1 )  );
                             tmpMap.put( "filesize",result.get().objectSize() );
                             tmpMap.put( "mtime" ,result.get().lastModified().getTime());

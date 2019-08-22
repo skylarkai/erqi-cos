@@ -6,7 +6,7 @@
 
     <groupId>cn.skylarkai</groupId>
     <artifactId>erqi-cos</artifactId>
-    <version>1.0.2-RELEASE</version>
+    <version>1.0.3-RELEASE</version>
     <packaging>jar</packaging>
     <url>www.skylarkai.cn</url>
     <name>二旗对象存储SDK</name>
